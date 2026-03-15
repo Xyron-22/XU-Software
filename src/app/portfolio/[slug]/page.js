@@ -1,4 +1,4 @@
-import { CASE_STUDIES } from "@/lib/caseStudyData";
+import { CASE_STUDIES, CASE_STUDY_LIST } from "@/lib/caseStudyData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -6,7 +6,7 @@ import CaseStudyHero from "@/components/portfolio/CaseStudyHero";
 import CaseStudyBody from "@/components/portfolio/CaseStudyBody";
 
 export async function generateStaticParams() {
-  return Object.keys(CASE_STUDIES).map((slug) => ({ slug }));
+  return CASE_STUDY_LIST.map((study) => ({ slug: study.slug }));
 }
 
 export async function generateMetadata({ params }) {

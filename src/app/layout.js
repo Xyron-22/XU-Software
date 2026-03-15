@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://xusoftware.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   title: {
     default: "XU Software — Custom Software Development Company",
     template: "%s | XU Software",
@@ -34,6 +34,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     siteName: "XU Software",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
