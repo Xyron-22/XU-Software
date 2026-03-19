@@ -9,80 +9,22 @@ import Testimonials from "@/components/home/Testimonials";
 import FAQSection from "@/components/home/FAQSection";
 import CtaBanner from "@/components/home/CtaBanner";
 
+export const metadata = {
+  title: "XU Software",
+  description:
+    "XU Software builds fast, scalable, and reliable custom software for startups and enterprises. Web apps, mobile apps, cloud, and more.",
+};
+
 const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
     {
       "@type": "Question",
-      name: "What services does XU Software offer?",
+      name: "How long does a typical project take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "XU Software offers web development, mobile app development, cloud solutions, API integration, UI/UX design, and QA & testing.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long does it take to build a custom software project?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Timelines vary depending on scope. A typical MVP takes 8–16 weeks, while larger enterprise projects may take 4–12 months.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What industries does XU Software work with?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We work across fintech, healthcare, e-commerce, SaaS, logistics, and more — serving startups and Fortune 500 companies.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you offer post-launch support?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. We offer ongoing maintenance, monitoring, and support packages after launch to ensure your product stays healthy.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is your tech stack?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We use React, Next.js, Node.js, Python, AWS, Flutter, PostgreSQL, Docker, TypeScript, and GraphQL, among others.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do you handle project communication?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We use agile sprints with weekly demos, Slack for daily comms, and detailed progress reports at every milestone.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can you take over an existing codebase?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. We regularly take over and improve legacy codebases, providing audits and incremental modernisation.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is your pricing model?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We offer fixed-price projects for well-defined scopes, and time-and-materials for ongoing or evolving work.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Where is XU Software based?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our headquarters are in San Francisco, CA, with a distributed team working across multiple time zones.",
+        text: "Simple websites and apps take 2–6 weeks. More complex platforms typically run 2–4 months. We provide a detailed timeline after the discovery call.",
       },
     },
     {
@@ -90,32 +32,90 @@ const FAQ_SCHEMA = {
       name: "Do you sign NDAs?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. We sign NDAs before any project discussions and take IP protection seriously.",
+        text: "Yes, absolutely. We sign NDAs before any discovery call if requested — protecting your IP is our baseline, not an afterthought.",
       },
     },
     {
       "@type": "Question",
-      name: "How do I get started?",
+      name: "Who owns the source code?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Simply contact us via our website or book a free 30-minute consultation. We'll discuss your project and provide a no-obligation proposal.",
+        text: "You do — 100%, always, regardless of which engagement you choose. Full IP transfer is standard in every project.",
       },
     },
     {
       "@type": "Question",
-      name: "How many projects has XU Software shipped?",
+      name: "What technologies do you specialize in?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We've shipped 150+ products to date, serving millions of users across the globe.",
+        text: "React, Next.js, Node.js, Python, AWS, Flutter, PostgreSQL, Docker, TypeScript, GraphQL, and more.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What engagement models do you offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Two options: Build & Deliver — a one-time project fee where we build and hand over the full source code. Or Build & Manage — project fee plus a monthly retainer where we also handle hosting, deployment, domain, and infrastructure.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you work with our existing codebase?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutely. We regularly audit and improve existing codebases — from refactoring legacy code to full modernisation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does your development process look like?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We work in agile sprints with regular client check-ins, continuous integration, and transparent progress updates throughout the project.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is included in the managed retainer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The monthly retainer covers hosting management, deployments, domain and DNS configuration, email domain setup, infrastructure monitoring, and ongoing updates and bug fixes.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I start with Build & Deliver and switch to managed later?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. You can start with a one-time build and later opt into the managed retainer if you'd rather not handle the technical side yourself.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is your pricing range?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Projects start from $1,500 depending on scope. Managed retainers are discussed after project completion based on your infrastructure needs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do we communicate during the project?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Direct communication throughout — no account managers or middlemen. You work directly with the developer via your preferred channel.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you work with international clients?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We work with clients remotely across different time zones and handle all collaboration asynchronously or via scheduled calls.",
       },
     },
   ],
-};
-
-export const metadata = {
-  title: "Custom Software Development Company",
-  description:
-    "XU Software builds fast, scalable, and reliable custom software for startups and enterprises. Web apps, mobile apps, cloud, and more.",
 };
 
 export default function Home() {

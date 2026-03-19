@@ -8,73 +8,81 @@ const CARDS = [
   {
     icon: Zap,
     title: "Fast Delivery",
-    desc: "From kickoff to launch in weeks, not months. Agile sprints, daily updates, no surprises.",
+    desc: "From kickoff to launch in weeks, not months. Direct communication, agile execution, no middlemen.",
   },
   {
     icon: Search,
     title: "Transparent Process",
-    desc: "Full visibility into every phase. Weekly reports, live tracking, open communication.",
+    desc: "Full visibility at every phase. You see the code, the progress, and the deployment in real time.",
   },
   {
     icon: Lock,
-    title: "You Own Everything",
-    desc: "Full source code ownership from day one. No lock-in, no hidden clauses, ever.",
+    title: "100% Code Ownership",
+    desc: "You own every line of code from day one. No lock-in, no hidden clauses — the source code is always yours.",
   },
   {
     icon: Shield,
-    title: "Post-Launch Support",
-    desc: "Dedicated support, monitoring, and maintenance included after launch.",
+    title: "Flexible Engagement",
+    desc: "Take the code and run, or have us manage hosting, deployment, domain, and infrastructure on a monthly retainer. Your choice.",
   },
 ];
 
 const TABLE_ROWS = [
   {
     feature: "Communication",
-    xu: "Direct & Fast",
+    xu: "Direct with Developer",
     freelancer: "Inconsistent",
-    agency: "Slow & Formal",
+    agency: "Through Account Manager",
   },
   {
     feature: "Speed",
-    xu: "Fast (Agile)",
+    xu: "Fast & Agile",
     freelancer: "Variable",
-    agency: "Slow",
+    agency: "Slow & Structured",
   },
   {
     feature: "Cost",
-    xu: "Transparent",
+    xu: "Transparent & Fair",
     freelancer: "Variable",
-    agency: "High",
+    agency: "High Overhead",
   },
   {
     feature: "Quality",
-    xu: "Enterprise-Grade",
+    xu: "Senior-Level Only",
     freelancer: "Variable",
-    agency: "Enterprise-Grade",
+    agency: "Mixed Team Levels",
   },
   {
-    feature: "Ownership",
-    xu: "Full Ownership",
-    freelancer: "Full Ownership",
+    feature: "Code Ownership",
+    xu: "Always 100% Yours",
+    freelancer: "Usually Full",
     agency: "Often Restricted",
   },
   {
-    feature: "Support",
-    xu: "Dedicated",
+    feature: "Hosting & Deploy",
+    xu: "Self-Managed or We Handle",
+    freelancer: "Rarely Included",
+    agency: "Paid Add-On",
+  },
+  {
+    feature: "Ongoing Management",
+    xu: "Optional Retainer",
     freelancer: "Limited",
-    agency: "Paid Extra",
+    agency: "Expensive Retainer",
   },
 ];
 
 function CompareCell({ value, highlight }) {
   const positive = [
-    "Direct & Fast",
-    "Fast (Agile)",
-    "Transparent",
-    "Enterprise-Grade",
-    "Full Ownership",
-    "Dedicated",
+    "Direct with Developer",
+    "Fast & Agile",
+    "Transparent & Fair",
+    "Senior-Level Only",
+    "Always 100% Yours",
+    "Self-Managed or We Handle",
+    "Optional Retainer",
   ].includes(value);
+
   return (
     <td
       className={`px-4 py-4 text-sm text-center ${highlight ? "bg-primary/10" : ""}`}

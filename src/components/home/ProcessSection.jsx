@@ -68,14 +68,14 @@ export default function ProcessSection() {
             className="absolute top-0 left-0 h-full bg-linear-to-r from-primary via-secondary to-primary"
             initial={{ width: "0%" }}
             animate={{ width: filled ? "100%" : "0%" }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 2.5, ease: "easeInOut" }}
             style={{ willChange: "width" }}
           />
           {filled && (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.1 }}
+              transition={{ delay: 2.5 }}
               className="absolute right-0 top-0 w-3 h-3 -translate-y-1/2 rounded-full bg-secondary"
               style={{ boxShadow: "0 0 12px hsl(258 90% 66% / 0.9)" }}
             />
@@ -84,13 +84,10 @@ export default function ProcessSection() {
 
         <div className="grid md:grid-cols-5 gap-6">
           {STEPS.map((step, i) => (
-            <ScrollFadeIn key={step.title} delay={i * 0.1}>
+            <ScrollFadeIn key={step.title} delay={i * 0.5}>
               <div className="text-center group">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                   <div className="relative">
-                    <span className="absolute -top-2 -right-3 text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
                     <step.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>

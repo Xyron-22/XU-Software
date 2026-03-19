@@ -1,23 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const TECH_COLORS = {
-  React: "#61DAFB",
-  "Next.js": "#fff",
-  "Node.js": "#68A063",
-  Python: "#F7C948",
-  AWS: "#FF9900",
-  Flutter: "#54C5F8",
-  PostgreSQL: "#336791",
-  Docker: "#2496ED",
-  TypeScript: "#3178C6",
-  GraphQL: "#E535AB",
-  Redis: "#FF4438",
-  GCP: "#4285F4",
-  WebRTC: "#333",
-  FHIR: "#D55",
-};
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export default function CaseStudyHero({ study }) {
   return (
@@ -62,6 +47,24 @@ export default function CaseStudyHero({ study }) {
                 </span>
               </div>
             ))}
+
+            {/* View Live pill — only shows if href exists */}
+            {study.href && (
+              <Link
+                href={study.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 hover:bg-primary/20 hover:border-primary/50 transition-all duration-200 group"
+              >
+                <span className="text-xs text-muted-foreground">
+                  View Live:
+                </span>
+                <span className="text-sm font-semibold text-primary group-hover:underline">
+                  {study.href.replace("https://", "").replace("http://", "")}
+                </span>
+                <ExternalLink className="w-3 h-3 text-primary" />
+              </Link>
+            )}
           </div>
         </motion.div>
 
@@ -81,28 +84,16 @@ export default function CaseStudyHero({ study }) {
             <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
             <div className="w-3 h-3 rounded-full bg-green-500/80" />
             <div className="flex-1 mx-4 bg-background rounded-md px-3 py-1 text-xs text-muted-foreground font-mono">
-              https://app.{study.client.toLowerCase().replace(" ", "")}.com
+              {study.href}
             </div>
           </div>
-          <div
-            className={`h-72 md:h-96 bg-linear-to-br ${study.coverGradient} flex items-center justify-center relative overflow-hidden`}
-          >
-            <div className="absolute inset-0 dot-grid opacity-30" />
-            <div className="text-7xl md:text-9xl font-black text-white/5 select-none">
-              {study.title.split(" ")[0].toUpperCase()}
-            </div>
-            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-              <div className="space-y-1">
-                {[80, 60, 90].map((w, i) => (
-                  <div
-                    key={i}
-                    className="h-2 rounded-full bg-white/10"
-                    style={{ width: `${w}px` }}
-                  />
-                ))}
-              </div>
-              <div className="w-20 h-12 rounded-lg bg-white/5 border border-white/10" />
-            </div>
+          <div className="h-full relative overflow-hidden">
+            <img
+              src={study.screenshots.desktop}
+              alt={`${study.title} screenshot`}
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-[#020817]/60 to-transparent" />
           </div>
         </motion.div>
       </div>

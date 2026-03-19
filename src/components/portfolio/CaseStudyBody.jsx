@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import ScrollFadeIn from "@/components/shared/ScrollFadeIn";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -190,7 +189,7 @@ export default function CaseStudyBody({ study }) {
       </section>
 
       {/* Gallery */}
-      <section className="py-20" style={{ background: "#080D1A" }}>
+      {/* <section className="py-20" style={{ background: "#080D1A" }}>
         <div className="container mx-auto px-6">
           <ScrollFadeIn>
             <h2 className="text-2xl font-bold mb-8">Screenshots</h2>
@@ -203,7 +202,7 @@ export default function CaseStudyBody({ study }) {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-24 text-center relative overflow-hidden">

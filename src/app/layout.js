@@ -19,7 +19,7 @@ export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   title: {
     default: "XU Software — Custom Software Development Company",
-    template: "%s | XU Software",
+    template: "XU Software | %s",
   },
   description:
     "XU Software builds fast, scalable, and reliable custom software for startups and enterprises. Web apps, mobile apps, cloud, and more.",
@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <BackToTop />
         <CookieConsent />
-        <CrispChat />
+        {/* <CrispChat /> */}
       </body>
     </html>
   );

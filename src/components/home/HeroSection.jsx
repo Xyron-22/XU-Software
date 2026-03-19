@@ -75,9 +75,9 @@ const CODE_LINES = [
 ];
 
 const STATS = [
-  { value: "150+", label: "Projects" },
-  { value: "8", label: "Years" },
-  { value: "40+", label: "Engineers" },
+  { value: "100%", label: "Code Ownership Yours" },
+  { value: "End-to-End", label: "Build to Deployment" },
+  { value: "Zero", label: "Middlemen or Handoffs" },
 ];
 
 export default function HeroSection() {

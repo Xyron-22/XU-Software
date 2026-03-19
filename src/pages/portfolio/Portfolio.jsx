@@ -3,86 +3,68 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { CASE_STUDY_LIST } from "@/lib/caseStudyData";
 import Link from "next/link";
 import PageHero from "@/components/shared/PageHero";
 import SectionHeading from "@/components/shared/SectionHeading";
 
 const FILTERS = ["All", "Web", "Mobile", "Cloud"];
 
-const PROJECTS = [
-  {
-    title: "E-Commerce Platform",
-    client: "StyleMart",
-    category: "Web",
-    desc: "A full-stack retail platform driving 340% revenue growth in 6 months.",
-    color: "from-blue-600/20 to-violet-600/20",
-    slug: "ecommerce-platform",
-  },
-  {
-    title: "Fintech Dashboard",
-    client: "ClearBank",
-    category: "Web",
-    desc: "Real-time analytics platform that cut manual reporting time by 80%.",
-    color: "from-emerald-600/20 to-cyan-600/20",
-    slug: "fintech-dashboard",
-  },
-  {
-    title: "Healthcare App",
-    client: "MedConnect",
-    category: "Mobile",
-    desc: "HIPAA-compliant telehealth platform serving 50,000+ patients.",
-    color: "from-pink-600/20 to-red-600/20",
-    slug: "healthcare-app",
-  },
-  {
-    title: "NovaPay Mobile",
-    client: "NovaSoft",
-    category: "Mobile",
-    desc: "A fintech mobile app serving 500K+ users across iOS and Android.",
-    color: "from-violet-600/20 to-pink-600/20",
-    slug: null,
-  },
-  {
-    title: "CloudSync Platform",
-    client: "DataSync",
-    category: "Cloud",
-    desc: "Multi-tenant SaaS infrastructure handling 99.99% uptime.",
-    color: "from-cyan-600/20 to-blue-600/20",
-    slug: null,
-  },
-  {
-    title: "NetGrid Infra",
-    client: "NetGrid",
-    category: "Cloud",
-    desc: "Kubernetes-based infrastructure supporting 50+ microservices.",
-    color: "from-amber-600/20 to-orange-600/20",
-    slug: null,
-  },
-];
+const PROJECTS = CASE_STUDY_LIST;
 
 function CardInner({ project }) {
   return (
     <>
       <div
-        className={`h-48 bg-linear-to-br ${project.color} relative flex items-center justify-center`}
+        className={`h-64 bg-linear-to-br ${project.coverGradient} relative flex items-center justify-center`}
       >
         <div className="absolute inset-0 dot-grid opacity-20" />
-        <div className="text-4xl font-bold text-white/10">
-          {project.title.split(" ")[0]}
-        </div>
+
+        {/* Client logo or fallback initials */}
+        {project.logo ? (
+          <img
+            src={project.logo}
+            alt={`${project.client} logo`}
+            className="h-64 w-full object-cover drop-shadow-lg"
+          />
+        ) : (
+          <div className="text-4xl font-bold text-white/10">
+            {project.client}
+          </div>
+        )}
+
         {project.slug && (
           <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-            <span className="flex items-center gap-1 text-sm font-medium text-primary">
+            <span className="flex items-center gap-1 text-sm font-medium text-primary underline">
               View Case Study <ArrowRight className="w-4 h-4" />
             </span>
           </div>
         )}
       </div>
       <div className="p-6">
-        <span className="text-xs font-medium text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-          {project.category}
-        </span>
-        <h3 className="font-semibold text-lg mt-3 mb-1">{project.client}</h3>
+        {/* Attribute chips */}
+        {project.attributes && project.attributes.length > 0 && (
+          <div className="flex flex-wrap gap-0.5">
+            {project.attributes.map((attr) => (
+              <div
+                key={attr}
+                className="flex items-center bg-background border border-border rounded-full px-2 py-1"
+              >
+                <span className="text-xs font-semibold text-muted-foreground">
+                  {attr}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-2 mb-1 flex items-center gap-0.5">
+          <span className="text-xs font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+            {project.techCategory}
+          </span>
+          <h3 className="font-semibold text-lg ">{project.client}</h3>
+        </div>
+
         <p className="text-muted-foreground text-sm leading-relaxed">
           {project.desc}
         </p>
@@ -94,7 +76,9 @@ function CardInner({ project }) {
 export default function PortfolioPage() {
   const [active, setActive] = useState("All");
   const filtered =
-    active === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
+    active === "All"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.techCategory === active);
 
   return (
     <>
@@ -126,19 +110,16 @@ export default function PortfolioPage() {
           </div>
 
           {/* Project grid */}
-          <motion.div
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
-              {filtered.map((project) => (
+              {filtered.map((project, i) => (
                 <motion.div
-                  key={project.title}
+                  key={project.slug || project.title}
                   layout
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2, delay: i * 0.04 }}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   className="group bg-card border border-border rounded-xl overflow-hidden glow-card"
                 >
@@ -152,7 +133,7 @@ export default function PortfolioPage() {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

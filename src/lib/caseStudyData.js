@@ -1,69 +1,64 @@
 export const CASE_STUDIES = {
-  "ecommerce-platform": {
-    slug: "ecommerce-platform",
-    title: "E-Commerce Platform",
-    category: "Retail",
-    client: "StyleMart",
-    industry: "Retail",
-    timeline: "6 months",
+  "globex-solutions": {
+    slug: "globex-solutions",
+    title: "Digital Services Company Website",
+    category: "Digital Services",
+    client: "GlobeX Solutions",
+    industry: "Digital Services",
+    timeline: "3 Weeks",
+    techCategory: "Web",
+    desc: "A modern digital services website that drives more clients and keeping them connected to the business.",
     outcome:
-      "Transformed a brick-and-mortar retailer into a digital-first brand, driving 340% revenue growth in under a year.",
+      "Built a professional web presence for GlobeX Solutions that showcases their services, establishes credibility, and gives potential clients a direct way to connect and get in touch.",
     challenge:
-      "StyleMart's legacy website couldn't handle peak traffic, had poor mobile UX, and lacked real-time inventory sync — causing thousands of lost sales daily and mounting customer frustration.",
+      "GlobeX Solutions had no web presence and was relying entirely on word of mouth and manual outreach to acquire clients. They needed a professional website that clearly communicates their services and makes it easy for potential clients to reach them.",
     solution:
-      "We rebuilt the entire platform with a React storefront, Node.js microservices backend, real-time inventory sync via Redis, Stripe payments, and an auto-scaling AWS deployment that handles 10× peak load without breaking a sweat.",
-    tech: [
-      "React",
-      "Node.js",
-      "PostgreSQL",
-      "AWS",
-      "Stripe",
-      "Redis",
-      "TypeScript",
-      "GraphQL",
-    ],
+      "We designed and developed a modern, responsive website from scratch — featuring a clean services showcase, a contact form for direct client inquiries, and a professional brand identity that positions GlobeX Solutions as a credible digital services provider.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Node.js"],
     results: [
-      { value: "340%", label: "Revenue Increase" },
-      { value: "2.1M", label: "Monthly Visitors" },
-      { value: "99.9%", label: "Uptime" },
+      { value: "3 Weeks", label: "Delivered On Time" },
+      { value: "100%", label: "Mobile Responsive" },
+      { value: "Live", label: "Deployed & Managed" },
     ],
     testimonial: {
       quote:
-        "XU Software didn't just build us a website — they built us a competitive advantage. Our online sales now outperform our in-store revenue for the first time in company history.",
-      name: "James Whitfield",
-      role: "CEO",
-      company: "StyleMart",
-      initials: "JW",
+        "I’m very happy with the website. The design looks great and everything works perfectly. Thank you Xy for being responsive and making the process easy.",
+      name: "Christine Gonzales",
+      role: "Founder & CEO",
+      company: "GlobeX Solutions",
+      initials: "CG",
+    },
+    attributes: ["SEO-Optimized", "Responsive", "Secured", "Fast"],
+    href: "https://www.globexagency.us",
+    logo: "/images/client_logos/globexsolutions-logo.webp",
+    screenshots: {
+      desktop:
+        "/images/client_project_screenshots/globex-solutions/desktop.PNG",
     },
     coverGradient: "from-blue-600/50 to-violet-600/50",
   },
-  "fintech-dashboard": {
-    slug: "fintech-dashboard",
-    title: "Fintech Dashboard",
-    category: "Finance",
-    client: "ClearBank",
-    industry: "Finance",
-    timeline: "4 months",
+
+  "me-construction-renovations-llc": {
+    slug: "me-construction-renovations-llc",
+    title:
+      "Construction & Renovations Company Website And 3D Design Tool Interface",
+    category: "Construction & Renovations",
+    client: "M&E Construction & Renovations LLC",
+    industry: "Construction & Renovations",
+    timeline: "6 Weeks",
+    techCategory: "Web",
+    desc: "An interactive 3D bathroom design tool that lets customers visualize and configure their dream bathroom before buying — turning browsers into buyers.",
     outcome:
-      "Delivered a real-time financial analytics platform that cut manual reporting time by 80% and unified 12 data sources.",
+      "Transformed a static brochure website into a fully interactive design platform — giving customers the ability to visualize their own custom bathroom in 3D, driving deeper engagement and converting more potential clients into actual sales.",
     challenge:
-      "ClearBank's analysts were drowning in spreadsheets — spending 40+ hours per week manually compiling reports from 12 disparate data sources, with no real-time visibility and mounting compliance risk.",
+      "M&E Construction had a simple brochure website that wasn't converting visitors into leads. Potential clients couldn't visualize the end result of a renovation, making it hard to commit to a purchase. They needed a way to engage customers earlier in the buying journey and turn interest into action.",
     solution:
-      "We built a GraphQL federation data pipeline, a high-performance React dashboard with live charts, role-based access control, automated PDF report generation, and deployed the entire stack on GCP with zero downtime CI/CD.",
-    tech: [
-      "React",
-      "GraphQL",
-      "Python",
-      "PostgreSQL",
-      "GCP",
-      "Docker",
-      "TypeScript",
-      "Redis",
-    ],
+      "We built a full web application featuring an interactive 3D bathroom design tool powered by Three.js — users enter a fully rendered 3D bathroom environment, browse the product catalog, and place real products directly into the scene to see exactly how their renovation will look. Designs are saved by email so users can return and continue later.",
+    tech: ["React", "Three.js", "Node.js", "PostgreSQL"],
     results: [
-      { value: "80%", label: "Time Saved on Reports" },
-      { value: "12", label: "Data Sources Unified" },
-      { value: "$2.4M", label: "Annual Cost Savings" },
+      { value: "3D", label: "Interactive Bathroom Design Tool" },
+      { value: "Higher", label: "Client Conversion Rate" },
+      { value: "Self-Serve", label: "Campaign & Subscriber Management" },
     ],
     testimonial: {
       quote:
@@ -73,45 +68,14 @@ export const CASE_STUDIES = {
       company: "ClearBank",
       initials: "PN",
     },
-    coverGradient: "from-emerald-600/50 to-cyan-600/50",
-  },
-  "healthcare-app": {
-    slug: "healthcare-app",
-    title: "Healthcare App",
-    category: "Healthcare",
-    client: "MedConnect",
-    industry: "Healthcare",
-    timeline: "8 months",
-    outcome:
-      "HIPAA-compliant telehealth platform now serving 50,000+ patients across 3 countries with a 4.9-star app store rating.",
-    challenge:
-      "MedConnect needed a secure, HIPAA-compliant telehealth platform with video consultations, specialist matching, and EHR integration — all while passing rigorous healthcare compliance audits across three regulatory jurisdictions.",
-    solution:
-      "We built a Flutter mobile app, React web portal, Node.js API with end-to-end encryption, WebRTC video consultations, HL7 FHIR integration for EHR compatibility, and navigated full HIPAA certification from architecture through deployment.",
-    tech: [
-      "Flutter",
-      "React",
-      "Node.js",
-      "WebRTC",
-      "PostgreSQL",
-      "AWS",
-      "Docker",
-      "FHIR",
-    ],
-    results: [
-      { value: "50K+", label: "Active Patients" },
-      { value: "3", label: "Countries Served" },
-      { value: "4.9★", label: "App Store Rating" },
-    ],
-    testimonial: {
-      quote:
-        "The level of technical expertise and compliance knowledge XU Software brought to this project was extraordinary. They delivered on schedule and passed every single audit.",
-      name: "Dr. Olusegun Adeyemi",
-      role: "CTO",
-      company: "MedConnect",
-      initials: "OA",
+    attributes: ["SEO-Optimized", "Responsive", "Secured", "Fast"],
+    href: "https://home.meconstructionrenovations.com/en",
+    logo: "/images/client_logos/me-construction-renovations-llc-logo.jpg",
+    screenshots: {
+      desktop:
+        "/images/client_project_screenshots/me-construction-renovations-llc/desktop.PNG",
     },
-    coverGradient: "from-pink-600/50 to-rose-600/50",
+    coverGradient: "from-emerald-600/50 to-cyan-600/50",
   },
 };
 

@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ScrollFadeIn from "../shared/ScrollFadeIn";
+import ScrollFadeIn from "@/components/shared/ScrollFadeIn";
 
 const STATS = [
-  { value: 150, suffix: "+", label: "Projects Delivered" },
-  { value: 8, suffix: "", label: "Years in Business" },
-  { value: 40, suffix: "+", label: "Engineers" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: "100%", label: "Code Ownership Yours" },
+  { value: "End-to-End", label: "Build to Deployment" },
+  { value: "Zero", label: "Middlemen or Handoffs" },
+  { value: "Flexible", label: "Build-Only or Fully Managed" },
 ];
 
-function AnimatedNumber({ target, suffix }) {
-  const [count, setCount] = useState(0);
+function TypewriterValue({ value }) {
+  const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
   const ref = useRef(null);
 
@@ -28,24 +28,29 @@ function AnimatedNumber({ target, suffix }) {
 
   useEffect(() => {
     if (!started) return;
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
+
+    setDisplayed("");
+    let i = 0;
+    // Speed: total animation ~800ms regardless of text length
+    const intervalMs = Math.max(40, 800 / value.length);
+
     const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else setCount(Math.floor(current));
-    }, 2000 / steps);
+      i++;
+      setDisplayed(value.slice(0, i));
+      if (i >= value.length) clearInterval(timer);
+    }, intervalMs);
+
     return () => clearInterval(timer);
-  }, [started, target]);
+  }, [started, value]);
 
   return (
-    <div ref={ref} className="shimmer-wrap">
-      <span className="text-5xl md:text-6xl font-extrabold gradient-text">
-        {count}
-        {suffix}
+    <div ref={ref} className="shimmer-wrap inline-block">
+      <span className="text-4xl md:text-5xl font-extrabold gradient-text">
+        {displayed}
+        {/* Blinking cursor while typing */}
+        {displayed.length < value.length && (
+          <span className="animate-pulse text-primary">|</span>
+        )}
       </span>
     </div>
   );
@@ -65,7 +70,7 @@ export default function StatsBand() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {STATS.map((stat, i) => (
             <ScrollFadeIn key={stat.label} delay={i * 0.1}>
-              <AnimatedNumber target={stat.value} suffix={stat.suffix} />
+              <TypewriterValue value={stat.value} />
               <div className="text-muted-foreground text-sm mt-2">
                 {stat.label}
               </div>
