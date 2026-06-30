@@ -5,27 +5,27 @@ import GlowCard from "../shared/GlowCard";
 const REVIEWS = [
   {
     quote:
-      "XU Software transformed our vision into a production-ready product in just 3 months. Their attention to detail and technical expertise is unmatched.",
-    name: "Sarah Chen",
-    role: "CTO",
-    company: "TechFlow",
-    initials: "SC",
+      "GreazeBook has significantly improved the way we manage our operations. Everything from inventory and sales to accounting is now connected in one place, making our daily workflow much more efficient.",
+    name: "Xyron Uy",
+    role: "Owner",
+    company: "GreazeBook",
+    initials: "XU",
   },
   {
     quote:
-      "Working with XU Software felt like having an elite engineering team in-house. They shipped faster than any agency we've worked with before.",
-    name: "Marcus Rivera",
-    role: "Founder",
-    company: "NovaSoft",
-    initials: "MR",
+      "Everything we want and need was provided, even exceeded our expectations! The Design tool is very useful for our prospect clients and also helps us very much. We're grateful we worked with XU Software.",
+    name: "Marc Nussbaum",
+    role: "Owner",
+    company: "M&E Construction & Renovations LLC",
+    initials: "MN",
   },
   {
     quote:
-      "The quality of code and design they deliver is enterprise-grade. Our platform handles 10x the traffic without breaking a sweat.",
-    name: "Aisha Patel",
-    role: "VP Engineering",
-    company: "DataSync",
-    initials: "AP",
+      "I’m very happy with the website. The design looks great and everything works perfectly. Thank you Xy for being responsive and making the process easy.",
+    name: "Christine Gonzales",
+    role: "Founder & CEO",
+    company: "GlobeX Solutions",
+    initials: "CG",
   },
 ];
 

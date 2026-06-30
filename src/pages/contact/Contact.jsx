@@ -19,10 +19,10 @@ import ScrollFadeIn from "@/components/shared/ScrollFadeIn";
 import CalendlyBooking from "../../components/contact/CalendlyBooking";
 
 const CONTACT_INFO = [
-  { icon: Mail, label: "Email", value: "hello@xusoftware.com" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-  { icon: MapPin, label: "Location", value: "San Francisco, CA" },
-  { icon: Clock, label: "Hours", value: "Mon–Fri, 9AM–6PM PST" },
+  { icon: Mail, label: "Email", value: "xyronuysoftware@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+63 994 526 6314" },
+  { icon: MapPin, label: "Location", value: "Cavite, Philippines" },
+  { icon: Clock, label: "Hours", value: "Mon–Sat, 8AM–10PM PHT" },
 ];
 
 function SocialIcon({ name }) {

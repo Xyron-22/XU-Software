@@ -1,6 +1,7 @@
 import ScrollFadeIn from "../shared/ScrollFadeIn";
 
 const LOGOS = [
+  "Globex VA Spire",
   "GlobeX Solutions Agency",
   "M&E Construction & Renovations LLC",
   "GreazeBook",
